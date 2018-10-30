@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local1="clr-namespace:HandleTappedEvent"
+             xmlns:sync="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             x:Class="HandleTappedEvent.MainPage">
+
+
+    <ContentPage.BindingContext>
+        <local1:BookInfoRepository x:Name="ViewModel" />
+    </ContentPage.BindingContext>
+
+    <sync:SfListView x:Name="listView" ItemSize="120" TapCommand="{Binding TapCommand}"
+                   ItemsSource="{Binding BookInfo}">
+        <sync:SfListView.Behaviors>
+            <local1:Behaviours/>
+        </sync:SfListView.Behaviors>
+        <sync:SfListView.ItemTemplate>
+            <DataTemplate>
+                <Grid Padding="10" BackgroundColor="Aqua">
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Path = BindingContext.GestureCommand, Source={x:Reference listView}}"/>
+                    </Grid.GestureRecognizers>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="100" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.4*" />
+                        <RowDefinition Height="0.6*" />
+                    </Grid.RowDefinitions>
+                    <Label Text="{Binding BookName}" FontAttributes="Bold"/>
+                    <Button Text="Test" Command="{Binding BindingContext.ButtonCommand, Source={x:Reference listView}}"  Grid.Row="1"/>
+                    <!--<Label Grid.Row="1" Text="{Binding BookDescription}" FontSize="15"/>-->
+                    <!--<numeric:SfNumericUpDown Grid.Column="1" Grid.RowSpan="2" HorizontalOptions="Start" VerticalOptions="Center"/>-->
+                </Grid>
+            </DataTemplate>
+        </sync:SfListView.ItemTemplate>
+    </sync:SfListView>
+
+</ContentPage>
