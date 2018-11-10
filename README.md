@@ -1,4 +1,4 @@
-# How to handle the tapped event when child view is clicked in Android platform?
+# How to handle the tapped Xamarin.Forms listview tapped event when child view is clicked in Android platform?
 This example demonstrates how to handle the interaction event for the child view in Android Renderer.
 
 See [How to handle the tapped event when child view is clicked in Android platform](https://www.syncfusion.com/kb/9536/how-to-handle-the-tapped-event-when-child-view-is-clicked-in-android-platform) for more details.
