@@ -4,11 +4,9 @@ This example demonstrates how to handle the interaction event for the child view
 ## Sample
 
 ```xaml
- <sync:SfListView x:Name="listView" ItemSize="120" TapCommand="{Binding TapCommand}"
+ <sync:SfListView x:Name="listView"
+                TapCommand="{Binding TapCommand}"
                 ItemsSource="{Binding BookInfo}">
-    <sync:SfListView.Behaviors>
-        <local1:Behaviours/>
-    </sync:SfListView.Behaviors>
     <sync:SfListView.ItemTemplate>
         <DataTemplate>
             <Grid Padding="10" BackgroundColor="Aqua">
@@ -25,8 +23,6 @@ This example demonstrates how to handle the interaction event for the child view
                 </Grid.RowDefinitions>
                 <Label Text="{Binding BookName}" FontAttributes="Bold"/>
                 <Button Text="Test" Command="{Binding BindingContext.ButtonCommand, Source={x:Reference listView}}"  Grid.Row="1"/>
-                <!--<Label Grid.Row="1" Text="{Binding BookDescription}" FontSize="15"/>-->
-                <!--<numeric:SfNumericUpDown Grid.Column="1" Grid.RowSpan="2" HorizontalOptions="Start" VerticalOptions="Center"/>-->
             </Grid>
         </DataTemplate>
     </sync:SfListView.ItemTemplate>
